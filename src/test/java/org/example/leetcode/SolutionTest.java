@@ -26,4 +26,11 @@ class SolutionTest {
         assertEquals(13, solution.numWaterBottles(9, 3));
         assertEquals(19, solution.numWaterBottles(15, 4));
     }
+
+    //3100. Water Bottles II
+    @Test
+    void maxBottlesDrunk() {
+        assertEquals(15, solution.maxBottlesDrunk(13, 6));
+        assertEquals(13, solution.maxBottlesDrunk(10, 3));
+    }
 }

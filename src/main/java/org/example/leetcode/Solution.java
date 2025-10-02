@@ -39,4 +39,16 @@ public class Solution {
         int numFullBottles = emptyBottles / numExchange;
         return numFullBottles + numFullBottles(emptyBottles % numExchange + numFullBottles, numExchange);
     }
+
+    //3100. Water Bottles II
+    public int maxBottlesDrunk(int numBottles, int numExchange) {
+        int sumFullBottles = numBottles;
+        int emptyBottles = numBottles;
+        while (emptyBottles >= numExchange) {
+            emptyBottles = emptyBottles - numExchange + 1;
+            sumFullBottles++;
+            numExchange++;
+        }
+        return sumFullBottles;
+    }
 }
