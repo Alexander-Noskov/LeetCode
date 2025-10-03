@@ -33,4 +33,12 @@ class SolutionTest {
         assertEquals(15, solution.maxBottlesDrunk(13, 6));
         assertEquals(13, solution.maxBottlesDrunk(10, 3));
     }
+
+    //407. Trapping Rain Water II
+    @Test
+    void trapRainWater() {
+        assertEquals(4, solution.trapRainWater(new int[][]{{1,4,3,1,3,2}, {3,2,1,3,2,4}, {2,3,3,2,3,1}}));
+        assertEquals(10, solution.trapRainWater(new int[][]{{3,3,3,3,3}, {3,2,2,2,3}, {3,2,1,2,3}, {3,2,2,2,3}, {3,3,3,3,3}}));
+        assertEquals(14, solution.trapRainWater(new int[][]{{12,13,1,12}, {13,4,13,12}, {13,8,10,12}, {12,13,12,12}, {13,13,13,13}}));
+    }
 }
