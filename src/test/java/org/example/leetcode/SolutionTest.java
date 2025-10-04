@@ -41,4 +41,11 @@ class SolutionTest {
         assertEquals(10, solution.trapRainWater(new int[][]{{3,3,3,3,3}, {3,2,2,2,3}, {3,2,1,2,3}, {3,2,2,2,3}, {3,3,3,3,3}}));
         assertEquals(14, solution.trapRainWater(new int[][]{{12,13,1,12}, {13,4,13,12}, {13,8,10,12}, {12,13,12,12}, {13,13,13,13}}));
     }
+
+    //11. Container With Most Water
+    @Test
+    void maxArea() {
+        assertEquals(49, solution.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
+        assertEquals(1, solution.maxArea(new int[]{1,1}));
+    }
 }
