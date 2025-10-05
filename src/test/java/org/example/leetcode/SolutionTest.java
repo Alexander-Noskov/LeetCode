@@ -3,6 +3,8 @@ package org.example.leetcode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
@@ -47,5 +49,15 @@ class SolutionTest {
     void maxArea() {
         assertEquals(49, solution.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
         assertEquals(1, solution.maxArea(new int[]{1,1}));
+    }
+
+    //417. Pacific Atlantic Water Flow
+    @Test
+    void pacificAtlantic() {
+        assertEquals(
+                List.of(List.of(0, 4), List.of(1, 3), List.of(1, 4), List.of(2, 2), List.of(3, 0), List.of(3, 1), List.of(4, 0)),
+                solution.pacificAtlantic(new int[][]{{1,2,2,3,5}, {3,2,3,4,4}, {2,4,5,3,1}, {6,7,1,4,5}, {5,1,1,2,4}})
+        );
+        assertEquals(List.of(List.of(0, 0)), solution.pacificAtlantic(new int[][]{{1}}));
     }
 }

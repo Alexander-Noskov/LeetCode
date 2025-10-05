@@ -1,5 +1,7 @@
 package org.example.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -142,5 +144,52 @@ public class Solution {
         }
 
         return maxArea;
+    }
+
+    //417. Pacific Atlantic Water Flow
+    public List<List<Integer>> pacificAtlantic(int[][] heights) {
+        List<List<Integer>> result = new ArrayList<>();
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int rows = heights.length;
+        int cols = heights[0].length;
+
+        boolean[][] pacificReachable = new boolean[rows][cols];
+        boolean[][] atlanticReachable = new boolean[rows][cols];
+
+        for (int r = 0; r < rows; r++) {
+            dfs(r, 0, heights, pacificReachable, directions);
+            dfs(r, cols - 1, heights, atlanticReachable, directions);
+        }
+
+        for (int c = 0; c < cols; c++) {
+            dfs(0, c, heights, pacificReachable, directions);
+            dfs(rows - 1, c, heights, atlanticReachable, directions);
+        }
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (pacificReachable[r][c] && atlanticReachable[r][c]) {
+                    result.add(List.of(r, c));
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private void dfs(int r, int c, int[][] heights, boolean[][] reachable, int[][] directions) {
+        reachable[r][c] = true;
+
+        for (int[] dir : directions) {
+            int newRow = r + dir[0];
+            int newCol = c + dir[1];
+
+            if (newRow >= 0 && newRow < heights.length &&
+                    newCol >= 0 && newCol < heights[0].length &&
+                    !reachable[newRow][newCol] &&
+                    heights[newRow][newCol] >= heights[r][c]) {
+                dfs(newRow, newCol, heights, reachable, directions);
+            }
+        }
     }
 }
