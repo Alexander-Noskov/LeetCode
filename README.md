@@ -9,3 +9,5 @@
 [11. Container With Most Water](https://github.com/Alexander-Noskov/LeetCode/blob/main/src/main/java/org/example/leetcode/Solution.java#L128-L145)
 
 [417. Pacific Atlantic Water Flow](https://github.com/Alexander-Noskov/LeetCode/blob/main/src/main/java/org/example/leetcode/Solution.java#L149-L194)
+
+[778. Swim in Rising Water](https://github.com/Alexander-Noskov/LeetCode/blob/main/src/main/java/org/example/leetcode/Solution.java#L196-L231)

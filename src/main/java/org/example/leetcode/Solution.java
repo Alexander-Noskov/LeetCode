@@ -192,4 +192,41 @@ public class Solution {
             }
         }
     }
+
+    //778. Swim in Rising Water
+    public int swimInWater(int[][] grid) {
+        int n = grid.length;
+        int time = 0;
+        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        Queue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        boolean[][] visited = new boolean[n][n];
+
+        q.offer(new int[]{grid[0][0], 0, 0});
+        visited[0][0] = true;
+
+        while (!q.isEmpty()) {
+            int [] current = q.poll();
+            int currentTime = current[0];
+            int currentRow = current[1];
+            int currentCol = current[2];
+
+            time = Math.max(time, currentTime);
+
+            if (currentRow == n - 1 && currentCol == n - 1) {
+                return time;
+            }
+
+            for (int[] dir : directions) {
+                int newRow = currentRow + dir[0];
+                int newCol = currentCol + dir[1];
+
+                if (newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && !visited[newRow][newCol]) {
+                    q.offer(new int[]{grid[newRow][newCol], newRow, newCol});
+                    visited[newRow][newCol] = true;
+                }
+            }
+        }
+
+        return -1;
+    }
 }
