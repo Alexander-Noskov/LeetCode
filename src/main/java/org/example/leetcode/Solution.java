@@ -1,9 +1,13 @@
 package org.example.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.TreeSet;
 
 public class Solution {
     private final static Solution instance;
@@ -228,5 +232,32 @@ public class Solution {
         }
 
         return -1;
+    }
+
+    //1488. Avoid Flood in The City
+    public int[] avoidFlood(int[] rains) {
+        int[] result = new int[rains.length];
+        Arrays.fill(result, 1);
+        Map<Integer, Integer> fullLakes = new HashMap<>();
+        TreeSet<Integer> zeros = new TreeSet<>();
+
+        for (int i = 0; i < rains.length; i++) {
+            int element = rains[i];
+            if (element == 0) {
+                zeros.add(i);
+            } else {
+                if (fullLakes.containsKey(element)) {
+                    Integer zeroIndex = zeros.higher(fullLakes.get(element));
+                    if (zeroIndex == null) {
+                        return new int[0];
+                    }
+                    zeros.remove(zeroIndex);
+                    result[zeroIndex] = element;
+                }
+                fullLakes.put(rains[i], i);
+                result[i] = -1;
+            }
+        }
+        return result;
     }
 }

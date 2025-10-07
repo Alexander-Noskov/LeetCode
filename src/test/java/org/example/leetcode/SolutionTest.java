@@ -67,4 +67,24 @@ class SolutionTest {
         assertEquals(3, solution.swimInWater(new int[][]{{0,2},{1,3}}));
         assertEquals(16, solution.swimInWater(new int[][]{{0,1,2,3,4},{24,23,22,21,5},{12,13,14,15,16},{11,17,18,19,20},{10,9,8,7,6}}));
     }
+
+    //1488. Avoid Flood in The City
+    @Test
+    void avoidFlood() {
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,3,4})[0]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,3,4})[1]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,3,4})[2]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,3,4})[3]);
+
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,0,0,2,1})[0]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,0,0,2,1})[1]);
+        assertEquals(2, solution.avoidFlood(new int[]{1,2,0,0,2,1})[2]);
+        assertEquals(1, solution.avoidFlood(new int[]{1,2,0,0,2,1})[3]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,0,0,2,1})[4]);
+        assertEquals(-1, solution.avoidFlood(new int[]{1,2,0,0,2,1})[5]);
+
+        assertEquals(0, solution.avoidFlood(new int[]{1,2,0,1,2}).length);
+
+        assertEquals(0, solution.avoidFlood(new int[]{0,1,1}).length);
+    }
 }
