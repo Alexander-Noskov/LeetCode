@@ -13,3 +13,5 @@ Pacific Atlantic Water Flow
 Swim in Rising Water
 
 Avoid Flood in The City
+
+Successful Pairs of Spells and Potions
