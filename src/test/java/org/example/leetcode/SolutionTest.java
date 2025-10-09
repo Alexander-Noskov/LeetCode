@@ -3,7 +3,6 @@ package org.example.leetcode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -104,5 +103,13 @@ class SolutionTest {
                 new int[]{33,14,15,32,26,37,35,32,30,28,24,29,13,22,39,9,26},
                 39)
                 [12]);
+    }
+
+    //3494. Find the Minimum Amount of Time to Brew Potions
+    @Test
+    void minTime() {
+        assertEquals(110, solution.minTime(new int[]{1, 5, 2, 4}, new int[]{5, 1, 4, 2}));
+        assertEquals(5, solution.minTime(new int[]{1, 1, 1}, new int[]{1, 1, 1}));
+        assertEquals(21, solution.minTime(new int[]{1, 2, 3, 4}, new int[]{1, 2}));
     }
 }

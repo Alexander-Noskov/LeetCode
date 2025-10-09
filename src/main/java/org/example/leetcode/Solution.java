@@ -291,4 +291,21 @@ public class Solution {
 
         return pairs;
     }
+
+    //3494. Find the Minimum Amount of Time to Brew Potions
+    public long minTime(int[] skill, int[] mana) {
+        int n = skill.length;
+        long[] result = new long[n + 1];
+
+        for (int k : mana) {
+            for (int i = 0; i < n; ++i) {
+                result[i + 1] = Math.max(result[i + 1], result[i]) + (long) k * skill[i];
+            }
+            for (int i = n - 1; i > 0; --i) {
+                result[i] = result[i + 1] - (long) k * skill[i];
+            }
+        }
+
+        return result[n];
+    }
 }
