@@ -112,4 +112,11 @@ class SolutionTest {
         assertEquals(5, solution.minTime(new int[]{1, 1, 1}, new int[]{1, 1, 1}));
         assertEquals(21, solution.minTime(new int[]{1, 2, 3, 4}, new int[]{1, 2}));
     }
+
+    //3147. Taking Maximum Energy From the Mystic Dungeon
+    @Test
+    void maxEnergy() {
+        assertEquals(3, solution.maximumEnergy(new int[]{5, 2, -10, -5, 1}, 3));
+        assertEquals(-1, solution.maximumEnergy(new int[]{-2, -3, -1}, 2));
+    }
 }

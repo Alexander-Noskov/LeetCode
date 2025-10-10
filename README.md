@@ -17,3 +17,5 @@ Avoid Flood in The City
 Successful Pairs of Spells and Potions
 
 Find the Minimum Amount of Time to Brew Potions
+
+Taking Maximum Energy From the Mystic Dungeon
